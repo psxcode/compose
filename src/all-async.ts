@@ -24,15 +24,13 @@ function allAsync<ARG, R0> (fn: (arg: ARG) => Promise<R0> | R0): (arg: ARG) => P
 
 function allAsync (): () => Promise<[]>
 function allAsync (...fns: any[]): any {
-  return (value: any) => {
-    return Promise.all(
-      fns.length > 0
-        ? value !== undefined
-          ? fns.map(fn => Promise.resolve(fn(value)))
-          : fns.map(fn => Promise.resolve(fn()))
-        : []
-    )
-  }
+  return (value: any) => Promise.all(
+    fns.length > 0
+      ? value !== undefined
+        ? fns.map(fn => Promise.resolve(fn(value)))
+        : fns.map(fn => Promise.resolve(fn()))
+      : []
+  )
 }
 
 export default allAsync

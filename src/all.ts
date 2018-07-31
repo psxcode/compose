@@ -24,13 +24,11 @@ function all<ARG, R0> (fn: (arg: ARG) => R0): (arg: ARG) => [R0]
 
 function all (): () => []
 function all (...fns: any[]): any {
-  return (value: any) => {
-    return fns.length > 0
-      ? value !== undefined
-        ? fns.map(fn => fn(value))
-        : fns.map(fn => fn())
-      : []
-  }
+  return (value: any) => fns.length > 0
+    ? value !== undefined
+      ? fns.map(fn => fn(value))
+      : fns.map(fn => fn())
+    : []
 }
 
 export default all
