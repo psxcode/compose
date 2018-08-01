@@ -8,13 +8,13 @@ const multAsync = (arg0: number) => (arg1: number): Promise<number> => Promise.r
 const constant = <T> (arg: T) => () => arg
 const toString = (arg: any): string => `${arg}`
 const toNumber = (arg: string): number => Number(arg)
-const throwing = (message: string) => (): any => {
+const throwing = (message: string) => (): never => {
   throw new Error(message)
 }
 
 describe('[ composeAsync ]', () => {
   it('should return async \'identity\' function', async () => {
-    const piped = composeAsync()
+    const piped = composeAsync<number>()
     const res = await piped(1)
     expect(res).eq(1)
   })

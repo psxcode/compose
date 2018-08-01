@@ -9,7 +9,7 @@ const toNumber = (arg: string): number => Number(arg)
 
 describe('[ compose ]', () => {
   it('should return the identity function', () => {
-    const piped = compose()
+    const piped = compose<number>()
     expect(piped(1)).eq(1)
   })
 
