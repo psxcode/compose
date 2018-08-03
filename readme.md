@@ -3,7 +3,7 @@
 ### Usage
 
 #### compose / composeAsync
-Sequential function composition, passing return value of the previous function as an argument to the next one
+Sequential function composition, passing return value of the previous function as an argument to the next one. Functions are being invoked in reverse order.
 ```ts
 import compose from '@psxcode/compose/compose'
 
@@ -13,6 +13,18 @@ const mult2 = (a: number) => a * 2
 const comp = compose(mult2, add4)
 
 comp(2) // (2 + 4) * 2 => 12
+```
+`composeAsync` accepts both `sync` and `async` functions
+```ts
+import compose from '@psxcode/compose/composeAsync'
+
+const add4Async = async (arg: number) => arg + 4
+const mult2 = (a: number) => a * 2
+
+// (number) => Promise<number>
+const comp = compose(mult2, add4Async)
+
+await comp(2) // (2 + 4) * 2 => 12
 ```
 The types are properly preserved
 ```ts
@@ -34,5 +46,55 @@ compose(
 ```
 
 #### pipe / pipeAsync
+Sequential function composition, passing return value of the previous function as an argument to the next one. Functions are being invoked in direct order.
+```ts
+import pipe from '@psxcode/compose/pipe'
+
+const add4 = (a: number) => a + 4
+const mult2 = (a: number) => a * 2
+
+// (number) => number
+const comp = pipe(mult2, add4)
+
+comp(2) // (2 * 2) + 4 => 8
+```
+`pipeAsync` accepts both `sync` and `async` functions.
+```ts
+import pipe from '@psxcode/compose/pipeAsync'
+
+const add4 = (a: number) => a + 4
+const mult2 = (a: number) => a * 2
+
+// (number) => Promise<number>
+const comp = pipe(mult2, add4)
+
+await comp(2) // (2 * 2) + 4 => 8
+```
 
 #### all / allAsync
+Parallel function composition, passing the initial value to all functions, and returning an array of results.
+```ts
+import all from '@psxcode/compose/all'
+
+const add4 = (a: number) => a + 4
+const mult2 = (a: number) => a * 2
+const toString = (a: number) => `${a}`
+
+// (number) => [number, number, string]
+const comp = all(mult2, add4, toString)
+
+comp(2) // [8, 6, '2']
+```
+`allAsync` accepts both `sync` and `async` functions
+```ts
+import all from '@psxcode/compose/allAsync'
+
+const add4 = (a: number) => a + 4
+const mult2 = async (a: number) => a * 2
+const toString = (a: number) => `${a}`
+
+// (number) => Promise<[number, number, string]>
+const comp = all(mult2, add4, toString)
+
+await comp(2) // [8, 6, '2']
+```
