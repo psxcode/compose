@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import allAsync from './all-async'
-import pipe from './pipe'
+import allAsync from '../src/all-async'
+import pipe from '../src/pipe'
 
 const add = (arg0: number) => (arg1: number): number => arg0 + arg1
 const addAsync = (arg0: number) => (arg1: number): Promise<number> => Promise.resolve(arg0 + arg1)

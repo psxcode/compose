@@ -23,12 +23,13 @@ function allAsync<R0, R1, R2, R3, R4, R5, R6, R7> (fn0: () => Promise<R0> | R0, 
 function allAsync<ARG, R0, R1, R2, R3, R4, R5, R6, R7> (fn0: (arg: ARG) => Promise<R0> | R0, fn1: (arg: ARG) => Promise<R1> | R1, fn2: (arg: ARG) => Promise<R2> | R2, fn3: (arg: ARG) => Promise<R3> | R3, fn4: (arg: ARG) => Promise<R4> | R4, fn5: (arg: ARG) => Promise<R5> | R5, fn6: (arg: ARG) => Promise<R6> | R6, fn7: (arg: ARG) => Promise<R7> | R7): Promise<[R0, R1, R2, R3, R4, R5, R6, R7]>
 
 function allAsync (): () => Promise<[]>
+
 function allAsync (...fns: any[]): any {
   return (value: any) => Promise.all(
     fns.length > 0
       ? value !== undefined
-        ? fns.map(fn => Promise.resolve(fn(value)))
-        : fns.map(fn => Promise.resolve(fn()))
+        ? fns.map((fn) => Promise.resolve(fn(value)))
+        : fns.map((fn) => Promise.resolve(fn()))
       : []
   )
 }

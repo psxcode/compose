@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import all from './all'
-import pipe from './pipe'
+import all from '../src/all'
+import pipe from '../src/pipe'
 
 const add = (arg0: number) => (arg1: number) => arg0 + arg1
 const mult = (arg0: number) => (arg1: number) => arg0 * arg1

@@ -23,12 +23,13 @@ function all<R0, R1, R2, R3, R4, R5, R6, R7> (fn0: () => R0, fn1: () => R1, fn2:
 function all<ARG, R0, R1, R2, R3, R4, R5, R6, R7> (fn0: (arg: ARG) => R0, fn1: (arg: ARG) => R1, fn2: (arg: ARG) => R2, fn3: (arg: ARG) => R3, fn4: (arg: ARG) => R4, fn5: (arg: ARG) => R5, fn6: (arg: ARG) => R6, fn7: (arg: ARG) => R7): (arg: ARG) => [R0, R1, R2, R3, R4, R5, R6, R7]
 
 function all (): () => []
+
 function all (...fns: any[]): any {
-  return (value: any) => fns.length > 0
+  return (value: any) => (fns.length > 0
     ? value !== undefined
-      ? fns.map(fn => fn(value))
-      : fns.map(fn => fn())
-    : []
+      ? fns.map((fn) => fn(value))
+      : fns.map((fn) => fn())
+    : [])
 }
 
 export default all

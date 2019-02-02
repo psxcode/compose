@@ -7,6 +7,7 @@ function compose<A, B, C, D, E, F, G> (fn0: (arg: F) => G, fn1: (arg: E) => F, f
 function compose<A, B, C, D, E, F, G, H> (fn0: (arg: G) => H, fn1: (arg: F) => G, fn2: (arg: E) => F, fn3: (arg: D) => E, fn4: (arg: C) => D, fn5: (arg: B) => C, fn6: (arg: A) => B): (arg: A) => H
 function compose<A, B, C, D, E, F, G, H, I> (fn0: (arg: H) => I, fn1: (arg: G) => H, fn2: (arg: F) => G, fn3: (arg: E) => F, fn4: (arg: D) => E, fn5: (arg: C) => D, fn6: (arg: B) => C, fn7: (arg: A) => B): (arg: A) => I
 function compose<A> (): (arg: A) => A
+
 function compose (...fns: any[]): any {
   return (initial: any) => fns.reduceRight(
     (arg, fn) => fn(arg),

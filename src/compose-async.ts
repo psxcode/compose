@@ -7,6 +7,7 @@ function composeAsync<A, B, C, D, E, F> (fn0: (arg: E) => Promise<F> | F, fn1: (
 function composeAsync<A, B, C, D, E, F, G> (fn0: (arg: F) => Promise<G> | G, fn1: (arg: E) => Promise<F> | F, fn2: (arg: D) => Promise<E> | E, fn3: (arg: C) => Promise<D> | D, fn4: (arg: B) => Promise<C> | C, fn5: (arg: A) => Promise<B> | B): (arg: A) => Promise<G>
 function composeAsync<A, B, C, D, E, F, G, H> (fn0: (arg: G) => Promise<H> | H, fn1: (arg: F) => Promise<G> | G, fn2: (arg: E) => Promise<F> | F, fn3: (arg: D) => Promise<E> | E, fn4: (arg: C) => Promise<D> | D, fn5: (arg: B) => Promise<C> | C, fn6: (arg: A) => Promise<B> | B): (arg: A) => Promise<H>
 function composeAsync<A, B, C, D, E, F, G, H, I> (fn0: (arg: H) => Promise<I> | I, fn1: (arg: G) => Promise<H> | H, fn2: (arg: F) => Promise<G> | G, fn3: (arg: E) => Promise<F> | F, fn4: (arg: D) => Promise<E> | E, fn5: (arg: C) => Promise<D> | D, fn6: (arg: B) => Promise<C> | C, fn7: (arg: A) => Promise<B> | B): (arg: A) => Promise<I>
+
 function composeAsync (...fns: any[]): any {
   return (initial: any) => fns.reduceRight(
     (arg, fn) => arg.then(fn),
