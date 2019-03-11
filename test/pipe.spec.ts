@@ -4,7 +4,7 @@ import pipe from '../src/pipe'
 const add = (arg0: number) => (arg1: number): number => arg0 + arg1
 const mult = (arg0: number) => (arg1: number): number => arg0 * arg1
 const constant = <T> (arg: T) => () => arg
-const toString = (arg: any): string => `${arg}`
+const toString = (arg: number): string => `${arg}`
 const toNumber = (arg: string): number => Number(arg)
 
 describe('[ pipe ]', () => {

@@ -5,7 +5,7 @@ import pipe from '../src/pipe'
 const add = (arg0: number) => (arg1: number) => arg0 + arg1
 const mult = (arg0: number) => (arg1: number) => arg0 * arg1
 const constant = <T> (arg: T) => (): T => arg
-const toString = (arg: any) => `${arg}`
+const toString = (arg: number) => `${arg}`
 const toNumber = (arg: string) => Number(arg)
 const noop = () => {}
 

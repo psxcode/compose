@@ -6,7 +6,7 @@ const add = (arg0: number) => (arg1: number): number => arg0 + arg1
 const addAsync = (arg0: number) => (arg1: number): Promise<number> => Promise.resolve(arg0 + arg1)
 const multAsync = (arg0: number) => (arg1: number): Promise<number> => Promise.resolve(arg0 * arg1)
 const constant = <T> (arg: T) => () => arg
-const toString = (arg: any): string => `${arg}`
+const toString = (arg: number): string => `${arg}`
 const toNumber = (arg: string): number => Number(arg)
 const noop = () => {}
 

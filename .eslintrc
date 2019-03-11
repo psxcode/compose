@@ -9,14 +9,27 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "parser": "eslint-plugin-typescript/parser",
-  "plugins": ["typescript", "import"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "plugins": ["@typescript-eslint", "import"],
   "settings": {
     "import/resolver": {
       "node": {
         "extensions": [".js", ".ts"]
       }
-    }
+    },
+    "import/core-modules": [
+      "debug",
+      "chai",
+      "mocha",
+      "test-fn"
+    ]
   },
   "rules": {
     "array-bracket-newline": [

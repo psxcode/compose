@@ -13,28 +13,31 @@
   "homepage": "https://github.com/psxcode/compose",
   "scripts": {
     "test": "NODE_ENV=test nyc mocha 'test/*.spec.ts'",
-    "build": "NODE_ENV=production rimraf build && tsc -p tsconfig.build.json",
+    "build": "rimraf build && npx tsc -p tsconfig.build.json && BABEL_ENV=production npx babel src -d build -x '.ts'",
     "copy": "cp ./{package.json,LICENSE,readme.md} ./build/"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-typescript": "^7.1.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.0.0",
     "@psxcode/wait": "^0.1.1",
     "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.19",
-    "babel-plugin-istanbul": "^5.1.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.11.1",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "babel-plugin-istanbul": "^5.1.1",
+    "babel-preset-minify": "^0.5.0",
     "chai": "^4.2.0",
-    "eslint": "^5.11.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-typescript": "^1.0.0-0",
-    "esm": "^3.1.4",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0",
+    "eslint": "^5.15.1",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
     "rimraf": "^2.6.3",
-    "typescript": "^3.2.4"
+    "typescript": "^3.3.3333"
   },
   "nyc": {
     "include": [
@@ -44,8 +47,7 @@
       "**/*.spec.ts"
     ],
     "require": [
-      "./tshook.js",
-      "esm"
+      "./require.js"
     ],
     "reporter": [
       "lcov",
