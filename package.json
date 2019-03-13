@@ -1,12 +1,9 @@
 {
   "name": "@psxcode/compose",
   "version": "0.1.3",
-  "main": "build/index.js",
-  "module": "build/index",
-  "typings": "build/index.d.ts",
-  "files": [
-    "build"
-  ],
+  "main": "index.js",
+  "module": "index",
+  "typings": "index.d.ts",
   "private": false,
   "license": "MIT",
   "author": "psxcode <psxcode@gmail.com> (https://github.com/psxcode)",
