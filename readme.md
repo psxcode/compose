@@ -1,5 +1,7 @@
 # Compose
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/psxcode/compose.svg)](https://greenkeeper.io/)
+
 ### Install
 ```
 npm install @psxcode/compose
