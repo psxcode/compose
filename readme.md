@@ -1,6 +1,6 @@
 # Compose
-[![Release](https://img.shields.io/github/release/atrox/sync-dotenv.svg?style=flat-square)](https://github.com/atrox/sync-dotenv/releases/latest)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fsync-dotenv%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/atrox/sync-dotenv/goto)
+[![Release](https://img.shields.io/github/release/psxcode/compose.svg)](https://github.com/psxcode/compose/releases/latest)
+[![GitHub Actions](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fpsxcode%2Fcompose%2Fbadge)](https://actions-badge.atrox.dev/psxcode/compose/goto)
 [![codecov](https://codecov.io/gh/psxcode/promised-streams/branch/master/graph/badge.svg)](https://codecov.io/gh/psxcode/promised-streams)
 
 ### Install
