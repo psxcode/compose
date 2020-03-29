@@ -1,6 +1,6 @@
 {
   "name": "@psxcode/compose",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index.js",
   "module": "index",
   "typings": "index.d.ts",
