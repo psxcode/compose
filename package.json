@@ -9,7 +9,8 @@
   "author": "psxcode <psxcode@gmail.com> (https://github.com/psxcode)",
   "homepage": "https://github.com/psxcode/compose",
   "scripts": {
-    "test": "NODE_ENV=test nyc mocha 'test/*.spec.ts'",
+    "cover": "NODE_ENV=test nyc mocha 'test/*.spec.ts'",
+    "test": "NODE_ENV=test mocha -r ./require.js 'test/*.spec.ts'",
     "build": "rimraf build && npx tsc -p tsconfig.build.json && BABEL_ENV=production npx babel src -d build -x '.ts'",
     "copy": "cp ./{package.json,LICENSE,readme.md} ./build/"
   },
